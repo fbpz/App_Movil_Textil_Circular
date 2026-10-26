@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.TextilCircular" parent="android:Theme.Material.Light.NoActionBar" />
+    <!-- Fondo oscuro de marca mientras carga Compose (evita el destello blanco antes del splash) -->
+    <style name="Theme.TextilCircular" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/tc_carbon</item>
+        <item name="android:colorAccent">@color/tc_cyan</item>
+    </style>
 </resources>

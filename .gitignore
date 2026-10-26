@@ -13,3 +13,15 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# Logs de crash de la JVM (daemon de Gradle sin memoria)
+hs_err_pid*.log
+replay_pid*.log
+
+# Firma de release (claves privadas)
+*.jks
+*.keystore
+keystore.properties
+
+# Caché del compilador de Kotlin
+.kotlin

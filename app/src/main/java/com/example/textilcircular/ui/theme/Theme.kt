@@ -1,58 +1,100 @@
 package com.example.textilcircular.ui.theme
 
-import android.app.Activity
-import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Shapes
 import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.dynamicDarkColorScheme
-import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
-
-private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
-)
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.unit.dp
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
+    primary = CyanOscuro,
+    onPrimary = Blanco,
+    primaryContainer = Cyan,
+    onPrimaryContainer = Negro,
+    secondary = AmarilloOscuro,
+    onSecondary = Blanco,
+    secondaryContainer = Amarillo,
+    onSecondaryContainer = Negro,
+    tertiary = VerdePetroleo,
+    onTertiary = Blanco,
+    tertiaryContainer = PetroleoProfundo,
+    onTertiaryContainer = Cyan,
+    background = GrisFondo,
+    onBackground = Carbon,
+    surface = Blanco,
+    onSurface = Carbon,
+    surfaceVariant = GrisClaro,
+    onSurfaceVariant = GrisTexto,
+    surfaceContainer = Blanco,
+    surfaceContainerLow = Blanco,
+    surfaceContainerHigh = GrisClaro,
+    outline = GrisBorde,
+    outlineVariant = GrisMedio,
+    error = RojoError,
+    onError = Blanco
+)
 
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+private val DarkColorScheme = darkColorScheme(
+    primary = Cyan,
+    onPrimary = Negro,
+    primaryContainer = VerdePetroleo,
+    onPrimaryContainer = Cyan,
+    secondary = Amarillo,
+    onSecondary = Negro,
+    secondaryContainer = Amarillo,
+    onSecondaryContainer = Negro,
+    tertiary = Cyan,
+    onTertiary = Negro,
+    tertiaryContainer = VerdePetroleo,
+    onTertiaryContainer = Cyan,
+    background = Carbon,
+    onBackground = GrisFondo,
+    surface = PetroleoProfundo,
+    onSurface = GrisFondo,
+    surfaceVariant = VerdePetroleo,
+    onSurfaceVariant = GrisMedio,
+    surfaceContainer = PetroleoProfundo,
+    surfaceContainerLow = PetroleoProfundo,
+    surfaceContainerHigh = VerdePetroleo,
+    outline = GrisBorde,
+    outlineVariant = VerdePetroleo,
+    error = RojoErrorClaro,
+    onError = Negro
+)
+
+// --r: 12px en la web
+val AppShapes = Shapes(
+    extraSmall = RoundedCornerShape(6.dp),
+    small = RoundedCornerShape(8.dp),
+    medium = RoundedCornerShape(12.dp),
+    large = RoundedCornerShape(16.dp),
+    extraLarge = RoundedCornerShape(24.dp)
+)
+
+// Degradado del hero de textilcircular.cl (145deg)
+val HeroGradient = Brush.linearGradient(
+    colors = listOf(Carbon, VerdePetroleo, PetroleoProfundo),
+    start = Offset(0f, 0f),
+    end = Offset(Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY)
 )
 
 @Composable
 fun TextilCircularTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {
-    val colorScheme = when {
-        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-            val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-        }
-
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
-    }
+    // Sin color dinámico: la app debe respetar la identidad visual de la marca
+    val colorScheme = if (darkTheme) DarkColorScheme else LightColorScheme
 
     MaterialTheme(
         colorScheme = colorScheme,
         typography = Typography,
+        shapes = AppShapes,
         content = content
     )
 }
