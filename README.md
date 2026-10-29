@@ -118,8 +118,6 @@ Posibles mejoras futuras, sujetas a definición del equipo:
 - Incorporar pruebas automatizadas y mensajes de error más completos.
 - Definir reglas de negocio para representar la circularidad textil.
 
-Repositorio: https://github.com/fbpz/App_Movil_Textil_Circular
-"""
-path = Path("/mnt/data/README_App_Movil_Textil_Circular.md")
+
 path.write_text(readme, encoding="utf-8")
 print(path)
