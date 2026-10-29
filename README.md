@@ -1,6 +1,4 @@
-from pathlib import Path
-
-readme = """# App Móvil Textil Circular
+## App Móvil Textil Circular
 
 Aplicación móvil Android orientada al registro de emprendimientos textiles y a la captura de fotografías de productos. Este repositorio corresponde a una versión inicial del proyecto; las funcionalidades de economía circular que se incorporen deberán documentarse a medida que se desarrollen.
 
@@ -119,19 +117,6 @@ Posibles mejoras futuras, sujetas a definición del equipo:
 - Registrar materiales, estado, reutilización y destino de reciclaje.
 - Incorporar pruebas automatizadas y mensajes de error más completos.
 - Definir reglas de negocio para representar la circularidad textil.
-
-## Contribuciones
-
-Si trabajas con otras personas en el proyecto:
-
-1. Crea una rama para tu cambio.
-2. Realiza cambios pequeños y descriptivos.
-3. Prueba la aplicación antes de enviar los cambios.
-4. Abre un Pull Request explicando qué cambiaste y cómo lo verificaste.
-
-## Autoría
-
-Proyecto académico / de desarrollo: **App Móvil Textil Circular**.
 
 Repositorio: https://github.com/fbpz/App_Movil_Textil_Circular
 """
